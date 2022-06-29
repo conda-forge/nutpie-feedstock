@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/aseyboldt/nutpie/archive/v{{ version }}.tar.gz
-  sha256: bd69275a31c9c3510f9814b3988744790a2181e0820734e7b3643600012b355d
+  sha256: 015389aba2c5398994f5a275770e5c39c084ae20aa781cc7a4f86ea4839dd5d8
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
