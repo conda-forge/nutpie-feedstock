@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/aseyboldt/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 015389aba2c5398994f5a275770e5c39c084ae20aa781cc7a4f86ea4839dd5d8
+  sha256: c4ce8d208e4739730f87000209443feca074971582915116fb6a997b835106f9
 
 build:
   number: 0
   skip: True  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - maturin build --bindings pyo3 --no-sdist --release --interpreter {{ PYTHON }} --out wheels
+    - maturin build --bindings pyo3 --release --interpreter {{ PYTHON }} --out wheels
     - {{ PYTHON }} -m pip install -vv --no-build-isolation --no-deps --no-index --find-links ./wheels nutpie
 
 requirements:
@@ -28,14 +28,13 @@ requirements:
     - python
     - setuptools
     - pip
-    - maturin
+    - maturin >=0.13
   run:
     - python
     - pymc-base
     - arviz
-    - aesara
-    - aeppl
-    - numba
+    - aesara >=2.7.7
+    - numba >=0.55
     - fastprogress
 
 test:
