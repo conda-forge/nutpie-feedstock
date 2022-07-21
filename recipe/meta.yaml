@@ -24,11 +24,11 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
+    - maturin >=0.13
   host:
     - python
     - setuptools
     - pip
-    - maturin >=0.13
   run:
     - python
     - pymc-base
