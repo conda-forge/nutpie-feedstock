@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aseyboldt/nutpie/archive/v{{ version }}.tar.gz
-  sha256: cdd75ec01d0d73313d83054bd420f626be189a0a63082a200e07ca25133fa43e
+  sha256: ee20478f10c623220ec107e0179f0da1953b66baf79cdb048303340cc42c3c48
 
 build:
   number: 0
