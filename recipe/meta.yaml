@@ -1,13 +1,13 @@
 {% set name = "nutpie" %}
-{% set version = "0.2.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/aseyboldt/nutpie/archive/v{{ version }}.tar.gz
-  sha256: ee20478f10c623220ec107e0179f0da1953b66baf79cdb048303340cc42c3c48
+  url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
+  sha256: 9dc87899989b34966a938552b76d109c73b3e95d1bc8259595c5d9fa410081a6
 
 build:
   number: 0
@@ -48,7 +48,7 @@ test:
     - tests
 
 about:
-  home: https://github.com/aseyboldt/nutpie
+  home: https://github.com/pymc-devs/nutpie
   summary: 'A fast and simple sampler for bayesian posterior distributions'
   description: |
     nutpie implements NUTS, an advanced gradient based sampler
