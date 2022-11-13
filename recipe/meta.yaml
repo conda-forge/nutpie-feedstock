@@ -13,35 +13,29 @@ build:
   number: 0
   skip: True  # [py<38]
   script:
-    # Adapted from tokenizers/meta.yml
-    {% if build_platform != target_platform %}
-    - export PYO3_CROSS_INCLUDE_DIR=$PREFIX/include
-    - export PYO3_CROSS_LIB_DIR=$SP_DIR/../
-    - export PYO3_CROSS_PYTHON_VERSION=$PY_VER
-    {% endif %}
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - maturin build --bindings pyo3 --release --manylinux off --interpreter {{ PYTHON }} --out wheels
+    - maturin build --bindings pyo3 --release --manylinux off --interpreter="${PYTHON}" --out wheels
     - {{ PYTHON }} -m pip install -vv --no-build-isolation --no-deps --no-index --find-links ./wheels nutpie
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - crossenv                               # [build_platform != target_platform]
-    - maturin >=0.13,<0.14                   # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
+    - maturin >=0.13,<0.14
   host:
     - python
     - setuptools
     - pip
     - numpy
-    - maturin >=0.13,<0.14
   run:
     - python
     - pymc-base
     - arviz
+    - xarray
     - aesara >=2.8.2
     - numba >=0.56
     - fastprogress
