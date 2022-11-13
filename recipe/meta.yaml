@@ -12,10 +12,6 @@ source:
 build:
   number: 0
   skip: True  # [py<38]
-  script:
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - maturin build --bindings pyo3 --release --manylinux off --interpreter="${PYTHON}" --out wheels
-    - {{ PYTHON }} -m pip install -vv --no-build-isolation --no-deps --no-index --find-links ./wheels nutpie
 
 requirements:
   build:
