@@ -13,6 +13,12 @@ build:
   number: 0
   skip: True  # [py<38]
   script:
+    # Adapted from tokenizers/meta.yml
+    {% if build_platform != target_platform %}
+    - export PYO3_CROSS_INCLUDE_DIR=$PREFIX/include
+    - export PYO3_CROSS_LIB_DIR=$SP_DIR/../
+    - export PYO3_CROSS_PYTHON_VERSION=$PY_VER
+    {% endif %}
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - maturin build --bindings pyo3 --release --manylinux off --interpreter {{ PYTHON }} --out wheels
     - {{ PYTHON }} -m pip install -vv --no-build-isolation --no-deps --no-index --find-links ./wheels nutpie
