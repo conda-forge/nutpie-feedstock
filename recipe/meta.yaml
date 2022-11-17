@@ -10,7 +10,7 @@ source:
   sha256: 9dc87899989b34966a938552b76d109c73b3e95d1bc8259595c5d9fa410081a6
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38]
 
 requirements:
@@ -19,7 +19,6 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=0.13,<0.14                   # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
