@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 3ac5341ce2e12b741f149566aeb352002620297c065c3132f9807bef7af7692d
+  sha256: 50f97ef7bfa9a25087ae15c108e0a95f4ad38603bf6be16a75efee3ce3ec2326
 
 build:
   number: 0
