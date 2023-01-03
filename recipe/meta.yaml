@@ -29,7 +29,7 @@ requirements:
     - maturin >=0.14,<0.15
   run:
     - python
-    - pymc-base
+    - pymc-base >=5.0.0
     - arviz
     - xarray
     - pytensor >=2.8.11
