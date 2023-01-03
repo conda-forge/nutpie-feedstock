@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,17 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 9dc87899989b34966a938552b76d109c73b3e95d1bc8259595c5d9fa410081a6
+  sha256: 50f97ef7bfa9a25087ae15c108e0a95f4ad38603bf6be16a75efee3ce3ec2326
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<38]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - maturin >=0.13,<0.14                   # [build_platform != target_platform]
+    - maturin >=0.14,<0.15                   # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
@@ -26,13 +26,13 @@ requirements:
     - setuptools
     - pip
     - numpy
-    - maturin >=0.13,<0.14
+    - maturin >=0.14,<0.15
   run:
     - python
-    - pymc-base
+    - pymc-base >=5.0.0
     - arviz
     - xarray
-    - aesara >=2.8.2
+    - pytensor >=2.8.11
     - numba >=0.56
     - fastprogress
     - {{ pin_compatible('numpy') }}
