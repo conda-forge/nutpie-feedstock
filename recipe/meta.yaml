@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,34 +7,39 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 50f97ef7bfa9a25087ae15c108e0a95f4ad38603bf6be16a75efee3ce3ec2326
+  sha256: 5bd77723bb9437f620ffe41989c8817f5b3b8b0e3fe7a5700d4419ee54daca73
 
 build:
-  number: 1
-  skip: True  # [py<38]
+  number: 0
+  skip: true  # [py<39]
+  ignore_run_exports_from:
+   - libclang
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - maturin >=0.14,<0.15                   # [build_platform != target_platform]
+    - maturin >=1.1,<2.0                     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
+    - libclang
+    - clang
     - cargo-bundle-licenses
   host:
     - python
     - setuptools
     - pip
     - numpy
-    - maturin >=0.14,<0.15
+    - maturin >=1.1,<2.0
   run:
     - python
-    - pymc-base >=5.0.0
+    - pymc-base >=5.5.0
     - arviz
     - xarray
     - pytensor >=2.8.11
-    - numba >=0.56
+    - numba >=0.57
     - fastprogress
+    - pyarrow
     - {{ pin_compatible('numpy') }}
 
 test:
@@ -43,13 +48,13 @@ test:
   requires:
     - pytest
   commands:
-    - pytest tests
+    - pytest tests/test_pymc.py
   source_files:
     - tests
 
 about:
   home: https://github.com/pymc-devs/nutpie
-  summary: 'A fast and simple sampler for bayesian posterior distributions'
+  summary: A fast and simple sampler for bayesian posterior distributions
   description: |
     nutpie implements NUTS, an advanced gradient based sampler
     for posterior distributions, with an easy to use interface.
