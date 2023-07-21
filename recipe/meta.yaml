@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 5bd77723bb9437f620ffe41989c8817f5b3b8b0e3fe7a5700d4419ee54daca73
+  sha256: 99b774378a4e38e84074addc777ce7f2d0bc40594f2ec1055d68441e6c105a8d
 
 build:
   number: 0
   skip: true  # [py<39]
   ignore_run_exports_from:
-   - libclang
+    - libclang
 
 requirements:
   build:
