@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: c9af2221517aeef3cfa639cac02821d1593d7d6bc7949ee9ebcd01c517d4b7fc
+  sha256: 13091959c56a36453c2d0edf42d987bb10683da8a6731ff9a4259a79baab0ed1
 
 build:
   number: 0
