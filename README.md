@@ -244,4 +244,8 @@ Feedstock Maintainers
 =====================
 
 * [@aseyboldt](https://github.com/aseyboldt/)
+* [@ferrine](https://github.com/ferrine/)
+* [@lucianopaz](https://github.com/lucianopaz/)
+* [@maresb](https://github.com/maresb/)
+* [@twiecki](https://github.com/twiecki/)
 
