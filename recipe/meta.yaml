@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pymc-devs/nutpie/archive/v{{ version }}.tar.gz
-  sha256: 13091959c56a36453c2d0edf42d987bb10683da8a6731ff9a4259a79baab0ed1
+  sha256: 1f9cca70cce82ffd02e400506e4e68595f82ff43057bc84dfacdb6320ce209af
 
 build:
   number: 0
@@ -66,6 +66,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - twiecki
     - aseyboldt
     - twiecki
     - maresb
