@@ -50,6 +50,7 @@ test:
   requires:
     - pip
     - pytest
+    - pymc-base
   commands:
     - pip check
     - pytest tests/test_pymc.py
