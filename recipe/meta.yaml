@@ -46,8 +46,10 @@ test:
   imports:
     - nutpie
   requires:
+    - pip
     - pytest
   commands:
+    - pip check
     - pytest tests/test_pymc.py
   source_files:
     - tests
