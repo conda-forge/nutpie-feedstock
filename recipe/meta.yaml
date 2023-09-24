@@ -33,13 +33,13 @@ requirements:
     - maturin >=1.1,<2.0
   run:
     - python
-    - pymc-base >=5.5.0
-    - arviz
+    - pyarrow
     - xarray
+    - arviz
+    - fastprogress
+    - pymc-base >=5.5.0
     - pytensor >=2.8.11
     - numba >=0.57
-    - fastprogress
-    - pyarrow
     - {{ pin_compatible('numpy') }}
 
 test:
