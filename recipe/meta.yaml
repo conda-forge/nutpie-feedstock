@@ -51,6 +51,7 @@ test:
     - pip
     - pytest
     - pymc-base
+    - numba
   commands:
     - pip check
     - pytest tests/test_pymc.py
