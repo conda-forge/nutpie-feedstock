@@ -38,10 +38,11 @@ requirements:
     - xarray >=2023.06.0
     - arviz >=0.15.0
     - fastprogress >=1.0.3
+    - {{ pin_compatible('numpy') }}
+  run_constrained:
     - pymc-base >=5.5.0
     - pytensor >=2.8.11
     - numba >=0.57
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
