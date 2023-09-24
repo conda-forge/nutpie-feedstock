@@ -41,7 +41,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
   run_constrained:
     - pymc-base >=5.5.0
-    - pytensor >=2.8.11
+    - pytensor-base >=2.8.11
     - numba >=0.57
 
 test:
