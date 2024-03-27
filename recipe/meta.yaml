@@ -10,7 +10,7 @@ source:
   sha256: d75b6bafa5a9d9534e456d6a09d61b41ad20a492c9f47528516d08ce89420770
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   ignore_run_exports_from:
     - libclang
