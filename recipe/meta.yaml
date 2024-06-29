@@ -52,6 +52,7 @@ test:
     - pytest
     - pymc-base
     - numba
+    - jax
   commands:
     - pip check
     - pytest tests/test_pymc.py
