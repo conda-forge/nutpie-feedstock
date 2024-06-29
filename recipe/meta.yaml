@@ -52,10 +52,11 @@ test:
     - pytest
     - pymc-base
     - numba
-    - jax
+    - jax  # [not win]
   commands:
     - pip check
-    - pytest tests/test_pymc.py
+    - pytest tests/test_pymc.py  # [not win]
+    - pytest tests/test_pymc.py -k "not jax"  # [win]
   source_files:
     - tests
 
