@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.11.1" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 9a937898a91415ac703b0de41d2d328045a8a39a0319fafc34ca25382b8d6c04
+  sha256: ee564c947aa1d5ece3d12528b8f85020c17fab4e2b05e705d34050074fcd00cc
 
 build:
   number: 0
@@ -52,9 +52,11 @@ test:
     - pytest
     - pymc-base
     - numba
+    - jax  # [not win]
   commands:
     - pip check
-    - pytest tests/test_pymc.py
+    - pytest tests/test_pymc.py  # [not win]
+    - pytest tests/test_pymc.py -k "not jax"  # [win]
   source_files:
     - tests
 
