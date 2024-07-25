@@ -10,7 +10,7 @@ source:
   sha256: 225354701958c0fcf020e87a96335600f157777bbd5c6e64994ff5f12c3dec54
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   ignore_run_exports_from:
     - libclang
@@ -34,7 +34,7 @@ requirements:
     - maturin >=1.1,<2.0
   run:
     - python
-    - pyarrow >=12.0.0
+    - pyarrow-core >=12.0.0
     - pandas >=2.0
     - xarray >=2023.06.0
     - arviz >=0.15.0
