@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.13.1" %}
+{% set version = "0.13.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 225354701958c0fcf020e87a96335600f157777bbd5c6e64994ff5f12c3dec54
+  sha256: f14282e2ac045c67a9b262a865b02a243178c55b541b236b21dfcb0c3678bcea
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<310]
   ignore_run_exports_from:
     - libclang
