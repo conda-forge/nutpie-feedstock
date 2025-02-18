@@ -1,13 +1,13 @@
 {% set name = "nutpie" %}
-{% set version = "0.13.3" %}
+{% set version = "0.13.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 7ffaa5aeb1947fa12928dd34d50c2d12ded263ae5e21e3a26a3b5fcdf3050503
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
+  sha256: 9bbc8aad126102290d99f2121ca8b06e3916cb061741cfc249ee6267e20c727c
 
 build:
   number: 0
@@ -36,8 +36,8 @@ requirements:
     - python
     - pyarrow-core >=12.0.0
     - pandas >=2.0
-    - xarray >=2023.06.0
-    - arviz >=0.15.0
+    - xarray >=2025.01.2
+    - arviz >=0.20.0
     - {{ pin_compatible('numpy') }}
   run_constrained:
     - pymc-base >=5.5.0
