@@ -10,7 +10,7 @@ source:
   sha256: 9bbc8aad126102290d99f2121ca8b06e3916cb061741cfc249ee6267e20c727c
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   ignore_run_exports_from:
     - libclang
@@ -38,7 +38,6 @@ requirements:
     - pandas >=2.0
     - xarray >=2025.01.2
     - arviz >=0.20.0
-    - {{ pin_compatible('numpy') }}
   run_constrained:
     - pymc-base >=5.5.0
     - pytensor-base >=2.8.11
