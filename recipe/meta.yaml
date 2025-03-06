@@ -30,7 +30,7 @@ requirements:
     - python
     - setuptools
     - pip
-    - numpy
+    - numpy >=1.25.0
     - maturin >=1.1,<2.0
   run:
     - python
@@ -38,7 +38,6 @@ requirements:
     - pandas >=2.0
     - xarray >=2025.01.2
     - arviz >=0.20.0
-    - {{ pin_compatible('numpy') }}
   run_constrained:
     - pymc-base >=5.20.1
     - numba >=0.60
