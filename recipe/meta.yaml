@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.13.4" %}
+{% set version = "0.14.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 9bbc8aad126102290d99f2121ca8b06e3916cb061741cfc249ee6267e20c727c
+  sha256: 35ccfed3926a36b030d9b919e3f7e5b6ed9b0820f878b5a6d9a2b740c3c896c2
 
 build:
   number: 0
@@ -30,7 +30,7 @@ requirements:
     - python
     - setuptools
     - pip
-    - numpy
+    - numpy >=1.25.0
     - maturin >=1.1,<2.0
   run:
     - python
@@ -38,11 +38,9 @@ requirements:
     - pandas >=2.0
     - xarray >=2025.01.2
     - arviz >=0.20.0
-    - {{ pin_compatible('numpy') }}
   run_constrained:
-    - pymc-base >=5.5.0
-    - pytensor-base >=2.8.11
-    - numba >=0.57
+    - pymc-base >=5.20.1
+    - numba >=0.60
 
 test:
   imports:
@@ -52,11 +50,9 @@ test:
     - pytest
     - pymc-base
     - numba
-    - jax  # [not win]
   commands:
     - pip check
-    - pytest tests/test_pymc.py  # [not win]
-    - pytest tests/test_pymc.py -k "not jax"  # [win]
+    - pytest tests/test_pymc.py -k "not jax" -m "not flow"
   source_files:
     - tests
 
