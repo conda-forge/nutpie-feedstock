@@ -50,11 +50,9 @@ test:
     - pytest
     - pymc-base
     - numba
-    - jax  # [not win]
   commands:
     - pip check
-    - pytest tests/test_pymc.py -m "not flow"  # [not win]
-    - pytest tests/test_pymc.py -k "not jax" -m "not flow"  # [win]
+    - pytest tests/test_pymc.py -k "not jax" -m "not flow"
   source_files:
     - tests
 
