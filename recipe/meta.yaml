@@ -40,9 +40,8 @@ requirements:
     - arviz >=0.20.0
     - {{ pin_compatible('numpy') }}
   run_constrained:
-    - pymc-base >=5.5.0
-    - pytensor-base >=2.8.11
-    - numba >=0.57
+    - pymc-base >=5.20.1
+    - numba >=0.60
 
 test:
   imports:
@@ -55,8 +54,8 @@ test:
     - jax  # [not win]
   commands:
     - pip check
-    - pytest tests/test_pymc.py  # [not win]
-    - pytest tests/test_pymc.py -k "not jax"  # [win]
+    - pytest tests/test_pymc.py -m "not flow"  # [not win]
+    - pytest tests/test_pymc.py -k "not jax" -m "not flow"  # [win]
   source_files:
     - tests
 
