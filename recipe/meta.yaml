@@ -48,8 +48,8 @@ test:
   requires:
     - pip
     - pytest
-    - pymc-base
-    - numba
+    - pymc-base >=5.2 .1
+    - numba >=0.60
   commands:
     - pip check
     - pytest tests/test_pymc.py -k "not jax" -m "not flow"
