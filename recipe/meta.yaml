@@ -48,11 +48,12 @@ test:
   requires:
     - pip
     - pytest
-    - pymc-base >=5.21
+    # Temporarily disable tests on intel osx py313 due to missing pytensor build
+    - pymc-base >=5.21  # [arm64 or not (py==313 and osx)]
     - numba >=0.60
   commands:
     - pip check
-    - pytest tests/test_pymc.py -k "not jax" -m "not flow"
+    - pytest tests/test_pymc.py -k "not jax" -m "not flow"  # [arm64 or not (osx and py==313)]
   source_files:
     - tests
 
