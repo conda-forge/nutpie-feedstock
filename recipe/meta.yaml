@@ -48,7 +48,7 @@ test:
   requires:
     - pip
     - pytest
-    - pymc-base >=5.2 .1
+    - pymc-base >=5.21
     - numba >=0.60
   commands:
     - pip check
