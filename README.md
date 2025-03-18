@@ -277,6 +277,3 @@ Feedstock Maintainers
 * [@maresb](https://github.com/maresb/)
 * [@twiecki](https://github.com/twiecki/)
 
-
-<!-- dummy commit to enable rerendering -->
-
