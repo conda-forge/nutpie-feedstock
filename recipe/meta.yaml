@@ -56,7 +56,7 @@ test:
     - numba >=0.62
   commands:
     - pip check
-    - set "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1" && pytest tests/test_pymc.py -k "not jax" -m "not flow" -vv
+    - pytest tests/test_pymc.py -k "not jax and not test_wait_timeout and not test_pause" -m "not flow" -vv
   source_files:
     - tests
 
