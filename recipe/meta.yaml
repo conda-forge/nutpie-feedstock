@@ -21,6 +21,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1.1,<2.0                     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - libclang
@@ -38,6 +39,8 @@ requirements:
     - pandas >=2.0
     - xarray >=2025.01.2
     - arviz >=0.20.0
+    - arro3-core >=0.6
+    - zarr >=3.0
   run_constrained:
     - pymc-base >=5.20.1
     - numba >=0.60
