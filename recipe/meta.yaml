@@ -41,6 +41,7 @@ requirements:
     - arviz >=0.20.0
     - arro3-core >=0.6
     - zarr >=3.0
+    - obstore >=0.8
   run_constrained:
     - pymc-base >=5.20.1
     - numba >=0.60
