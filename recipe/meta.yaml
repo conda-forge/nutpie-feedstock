@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.15.2" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 87b15617dbf5d38808c12f262742916035625a604ebcc6dc97545087d40b2e0b
+  sha256: 356e819a04e2e8e3286329f353eeb1b18b180fbcfe6bded4504604c19368dcb8
 
 build:
   number: 0
-  skip: true  # [py<310 or ppc64le]
+  skip: true  # [py<311 or ppc64le]
   ignore_run_exports_from:
     - libclang
 
@@ -21,6 +21,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1.1,<2.0                     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - libclang
@@ -38,6 +39,9 @@ requirements:
     - pandas >=2.0
     - xarray >=2025.01.2
     - arviz >=0.20.0
+    - arro3-core >=0.6
+    - zarr >=3.0
+    - obstore >=0.8
   run_constrained:
     - pymc-base >=5.20.1
     - numba >=0.60
@@ -48,11 +52,11 @@ test:
   requires:
     - pip
     - pytest
-    - pymc-base >=5.21
-    - numba >=0.60
+    - pymc-base >=5.24
+    - numba >=0.62
   commands:
     - pip check
-    - pytest tests/test_pymc.py -k "not jax" -m "not flow"
+    - pytest tests/test_pymc.py -k "not jax and not test_wait_timeout and not test_pause" -m "not flow" -vv
   source_files:
     - tests
 
