@@ -10,7 +10,7 @@ source:
   sha256: 2187f19b447a0de5076718d3ec332154a0bf9581248b0e440c997a38e3530ba3
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<311 or ppc64le]
   ignore_run_exports_from:
     - libclang
