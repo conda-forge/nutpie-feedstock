@@ -12,7 +12,6 @@ Summary: Sample Stan or PyMC models
 nutpie implements NUTS, an advanced gradient based sampler
 for posterior distributions, with an easy to use interface.
 
-
 Current build status
 ====================
 
