@@ -1,5 +1,5 @@
 {% set name = "nutpie" %}
-{% set version = "0.16.4" %}
+{% set version = "0.16.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nutpie-{{ version }}.tar.gz
-  sha256: 2187f19b447a0de5076718d3ec332154a0bf9581248b0e440c997a38e3530ba3
+  sha256: 2be8c0c55e6823244d08ad4eb3eb52a5538091734f6f61dc5f8f1aa534df845b
 
 build:
   number: 0
