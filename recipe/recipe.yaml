@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: nutpie
-  version: "0.16.6"
+  version: "0.16.7"
 
 package:
   name: ${{ name|lower }}
@@ -10,20 +10,19 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/nutpie-${{ version }}.tar.gz
-  sha256: 3c2a7a5cce46fdf6918e2e7c5bd468225c190b6a02fc4b2619b0a99720a70261
+  sha256: 05be8d59bb908207134e6f6e903aa9fc98779f5d0103274f15f25f0b963dbb7f
 
 build:
-  number: 2
+  number: 0
   skip: match(python, "<3.11") or ppc64le
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: maturin >=1.1,<2.0
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - maturin >=1.1,<2.0
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
@@ -40,12 +39,12 @@ requirements:
   run:
     - python
     - pyarrow-core >=12.0.0
+    - arro3-core >=0.6.0
     - pandas >=2.0
     - xarray >=2025.01.2
-    - arviz >=0.20.0
-    - arro3-core >=0.6.0
-    - zarr >=3.1.0
+    - arviz >=0.20.0,<1.0
     - obstore >=0.8.0
+    - zarr >=3.1.0
   ignore_run_exports:
     from_package:
       - libclang
