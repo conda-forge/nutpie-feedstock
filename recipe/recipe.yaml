@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: nutpie
-  version: "0.16.8"
+  version: "0.16.10"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/nutpie-${{ version }}.tar.gz
-  sha256: 093c16755093d47a341649c508c196d0665ee20d930642a6269186098170a638
+  sha256: 6378830bc115fb34bcd0c92d1b5f34b567d13913e3fc408315c50ec803e8f3a9
 
 build:
   number: 0
